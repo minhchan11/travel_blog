@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Make new thing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model travel_blog.Models.Thing
+
+<h6>Add a new thing</h6>
+@using (Html.BeginForm())
+{
+    <label>Name</label>
+    @Html.TextBoxFor(model => model.name)
+    <label>Location</label>
+  @Html.DropDownList("locations")
+    <input class="btn btn-success" type="submit" value="Submit" />
+}

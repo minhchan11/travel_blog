@@ -1,0 +1,16 @@
+@model travel_blog.Models.Person
+@{
+    ViewData["Title"] = "Division Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Details</h2>
+<hr />
+<h4>Description:@Html.DisplayFor(model => model.name)</h4>
+<h5>People:</h5>
+@foreach (var person in Model.Persons)
+{ <li>@person.name</li>}
+<h6>Location: @Model.Location.name</h6>
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
