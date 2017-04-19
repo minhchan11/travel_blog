@@ -23,7 +23,7 @@ namespace travel_blog.Controllers
 
         public IActionResult Details(int id)
         {
-            var thisThing = db.Things.Include(things => things.Persons).Include(things => things.Location).FirstOrDefault(things => things.thingId == id);
+            var thisThing = db.Things.Include(things => things.Persons).Include(things => things.Location).FirstOrDefault(things => things.id == id);
             return View(thisThing);
         }
 
@@ -43,13 +43,13 @@ namespace travel_blog.Controllers
 
         public IActionResult Delete(int id)
         {
-            var thisThing = db.Things.FirstOrDefault(things => things.thingId == id);
+            var thisThing = db.Things.FirstOrDefault(things => things.id == id);
             return View(thisThing);
         }
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
-            var thisThing = db.Things.FirstOrDefault(things => things.thingId == id);
+            var thisThing = db.Things.FirstOrDefault(things => things.id == id);
             db.Things.Remove(thisThing);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -58,7 +58,7 @@ namespace travel_blog.Controllers
          public IActionResult Edit(int id)
         {
             ViewBag.locations = new SelectList(db.Locations, "id", "name");
-            var thisThing = db.Things.FirstOrDefault(things => things.thingId == id);
+            var thisThing = db.Things.FirstOrDefault(things => things.id == id);
             return View(thisThing);
         }
 

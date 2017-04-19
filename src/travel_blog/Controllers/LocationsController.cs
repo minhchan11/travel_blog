@@ -56,7 +56,8 @@ namespace travel_blog.Controllers
           var thisLocation = db.Locations.Include(locations => locations.Things).FirstOrDefault(locations => locations.id == id);
           return View(thisLocation);
         }
-        [HttpPost, Action("Delete")]
+
+        [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
           var thisLocation = db.Locations.Include(locations => locations.Things).FirstOrDefault(locations => locations.id == id);
