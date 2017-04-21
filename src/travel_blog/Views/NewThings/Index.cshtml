@@ -1,0 +1,15 @@
+﻿@model IEnumerable<travel_blog.Models.NewThing>
+
+@{
+    ViewData["Title"] = "New Things Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <h4>@Html.DisplayNameFor(model =>model.name)</h4>
+    <ul>
+        @foreach(var thing in Model)
+        {
+            <li>@Html.DisplayFor(modelItem => thing.name) | @Html.ActionLink("Details", "Details", new { id = thing.thingId }) | @Html.ActionLink("Delete", "Delete", new { id = thing.thingId }) | @Html.ActionLink("Edit", "Edit", new { id = thing.thingId })</li>
+        }
+    </ul>
+
+<p>@Html.ActionLink("Add new location", "Create") </p>

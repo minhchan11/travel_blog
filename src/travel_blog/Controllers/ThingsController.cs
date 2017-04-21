@@ -27,47 +27,5 @@ namespace travel_blog.Controllers
             return View(thisThing);
         }
 
-        public IActionResult Create()
-        {
-            ViewBag.locations = new SelectList(db.Locations, "id", "name");
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Create(Thing thing)
-        {
-            db.Things.Add(thing);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        public IActionResult Delete(int id)
-        {
-            var thisThing = db.Things.FirstOrDefault(things => things.id == id);
-            return View(thisThing);
-        }
-        [HttpPost, ActionName("Delete")]
-        public IActionResult DeleteConfirmed(int id)
-        {
-            var thisThing = db.Things.FirstOrDefault(things => things.id == id);
-            db.Things.Remove(thisThing);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-         public IActionResult Edit(int id)
-        {
-            ViewBag.locations = new SelectList(db.Locations, "id", "name");
-            var thisThing = db.Things.FirstOrDefault(things => things.id == id);
-            return View(thisThing);
-        }
-
-        [HttpPost]
-        public IActionResult Edit(Thing thing)
-        {
-            db.Entry(thing).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
     }
 }

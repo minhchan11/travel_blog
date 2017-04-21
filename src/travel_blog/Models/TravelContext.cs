@@ -8,6 +8,10 @@ namespace travel_blog.Models
 {
     public class TravelContext : DbContext
     {
+      public TravelContext()
+        {
+
+        }
         public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<Thing> Things { get; set; }
         public virtual DbSet<Person> Persons { get; set; }
@@ -20,6 +24,11 @@ namespace travel_blog.Models
             options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Travel;integrated security=True");
         }
 
+        public TravelContext(DbContextOptions<TravelContext> options)
+            :base(options)
+            {
+
+            }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

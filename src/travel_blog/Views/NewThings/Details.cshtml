@@ -1,0 +1,16 @@
+@model travel_blog.Models.NewThing
+@{
+    ViewData["Title"] = "New Person Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Details</h2>
+<hr />
+<h4>name:@Html.DisplayFor(model => model.name)</h4>
+<h6>Persons:</h6>
+@foreach (var joint in Model.ThingsPersons)
+   {
+       <p>@joint.NewPerson.name</p>
+   }
+<p>@Html.ActionLink("Back to list", "Index")</p>
