@@ -1,0 +1,15 @@
+﻿@model travel_blog.Models.ThingPerson
+
+<h2>Add a person to a thing</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    <label>Person</label>
+    @Html.DropDownList("personId")
+
+    <label>Experience</label>
+    @Html.DropDownList("thingId")
+
+    <input type="submit" value="Add" />
+}
